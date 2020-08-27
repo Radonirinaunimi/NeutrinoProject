@@ -1,0 +1,168 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%               (Tanjona Radonirina)                 %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[twocolumn,secnumarabic,amssymb, nobibnotes, aps, prd,10pt]{revtex4-1}
+
+\newcommand{\revtex}{REV\TeX\ }
+\newcommand{\classoption}[1]{\texttt{#1}}
+\newcommand{\macro}[1]{\texttt{\textbackslash#1}}
+\newcommand{\m}[1]{\macro{#1}}
+\newcommand{\env}[1]{\texttt{#1}}
+\setlength{\textheight}{9.5in}
+
+\usepackage{slashed}
+\newcommand{\ignore}[1]{}
+
+\usepackage{amsmath,multirow}
+\setcounter{secnumdepth}{3}
+
+\usepackage{color}
+\definecolor{azure}{rgb}{0.0, 0.44, 1.0}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.75}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=red,
+	citecolor=azure,
+	urlcolor=cyan,
+}
+
+\newcommand{\kt}[1]{\vert #1 \rangle}
+\newcommand{\bkt}[3]{\langle #1 \vert #2 \vert #3 \rangle}
+
+\newcommand{\Eq}[1]{Eq.$\:$(\ref{#1})}
+\newcommand{\Fig}[1]{Fig.$\:$\ref{#1}}
+\newcommand{\App}[1]{App.$\:$\ref{#1}}
+\newcommand{\SubApp}[2]{App.$\:$\ref{#1}.\ref{#2}}
+\newcommand{\Sec}[1]{Sec.$\:$\ref{#1}}
+%************************************************************************************************************
+
+\begin{document}
+
+\title{\texorpdfstring{Phenomenological Introduction to Neutrino Oscillations}{Phenomenological Introduction to Neutrino Oscillations}}
+
+\author{Tanjona R.\ Rabemananjara}
+\email{tanjona.rabemananjara@mi.infn.it}
+\affiliation{Universita degli Studi di Milano \\
+Via Celoria 16, Milano 20133, Italy}
+
+\maketitle
+%\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+One of the prominent features of the non-Abelian theory of the strong force or Quantum Chromodynamics (QCD) at low energy is \emph{color confinement}. Color confinement is a property of QCD which basically states that isolated quarks and gluons cannot exist in nature \cite{Marciano:1977su}. In this energy regime, the non-Abelian nature of QCD makes the theory extremely hard to solve and it may even be impossible to analytically obtain a solution. Indeed, due to the strength of the coupling constant, the usual perturbative approach cannot be applied and one has to rely on numerical approaches such as Lattice QCD (LQCD) \cite{Beringer:1900zz}.
+
+Unlike the quantum field theory of electrodynamics (QED), the coupling strength of the QCD is weak at short distances, that is at high energy. The weakening of the coupling constant is known as \emph{asymptotic freedom}. The property of asymptotic freedom was discovered by D. Gross and F. Wilczek \cite{Gross:1973id} and independently by D. Politzer in 1973 \cite{Politzer:1973fx}. This discovery leads to the prediction of the existence of a deconfined state made of free quarks and gluons \cite{Cabibbo:1975ig,Collins:1974ky}. The aim of heavy-ion experiments at the Relativistic Heavy Ion Collider (RHIC) at Brookhaven National Laboratory (BNL) in the United States and the Large Hadron Collider (LHC) at the European Organization for Nuclear Research (CERN) in Switzerland is to collide heavy-ions so as to create immensely high energy densities which could produce a system of deconfined quarks and gluons \cite{Schmidt:1992ge,Harris:1996zx}. 
+
+In 2003, by making head-on collisions between gold-ions (Au-Au) at the center of mass energy of $\sqrt{s_{NN}} \sim 200$ GeV, scientists at RHIC for the first time produced an ultra-hot and dense soup made of asymptotically free weakly-interacting quarks and gluons \cite{Gyulassy:2004zy,Adcox:2004mh,Arsene:2004fa,Back:2004je}. This new state of matter characterized by an equilibrium system composed of deconfined quarks and gluons is known as Quark-Gluon Plasma (QGP) \cite{Adams:2005dq, Heinz:2000bk}. Starting in 2010, CERN extended the work at BNL to even higher energy and density by colliding lead-ions (Pb-Pb) at $\sqrt{s_{NN}}\sim 2,76$ TeV \cite{Aad:2010bu, Chatrchyan:2011pe, Aamodt:2010jd, Aamodt:2010pa}. Data collected from LHC have confirmed the existence of QGP. One of the most exciting results from experiments conducted both at CERN and RHIC is the depletion of high transverse momentum $(p_\perp)$ hadrons \cite{Aiola:2014cja, Chatrchyan:2011sx, ALICE:2012ab} which is a signature of a color opaque medium, technically known as \textit{jet quenching}. The term jet quenching refers to the modification of the evolution of a high energy parton passing through the QGP due to its interaction with the medium \cite{Armesto:2015ioy}. Data collected at heavy-ion experiments (RHIC and LHC) suggested that jet quenching is a consequence of the energy loss of the primordial parton \cite{Antinori:2005tu, Qin:2015srf, Lee:2013bka, Gyulassy:2003mc}. Jet quenching is important because it provides a valuable tool to probe the properties of QGP produced in heavy-ion collisions \cite{Armesto:2011ht}.
+
+The jet quenching phenomenon can be understood in the following way: the formation of a deconfined quark-gluon plasma at a very early stage of a relativistic heavy-ion collision engenders the creation of high momentum partons (quarks or gluons). In high energy regimes (coupling constant $\alpha_s\ll 1$), the physics of the QGP-matter is governed by the weak-coupling physics of Quantum Chromodynamics (QCD) \cite{Baier:2000mf,Pasechnik:2016wkt} which is in the domain of applicability of perturbative-QCD (pQCD). Thus, in the weakly-coupled regime one may use pQCD to study the physics of the QGP energy loss \cite{Horowitz:2007su, Bouras:2013una,Shuryak:1983zb}. The interaction of these self-generated partons with the surrounding medium leads to an energy loss. The exact source of parton energy loss is directly tied to the balance between \emph{collisional energy loss} and \emph{radiative energy loss}. The collisional energy loss occurs when the self-generated parton loses energy via elastic collision with other particles composing the medium \cite{Bjorken:1982tu}. On the other hand, the inelastic scattering of a high energy parton and a thermal gluon can yield the emission of gluon radiations (Bremsstrahlung gluons) and the decrease of the energy \cite{Gyulassy:1993hr,Baier:2000mf,Wang:2003mm,Chen:2010te}. Data collected from ultrarelativistic heavy-ion experiments at LHC suggested that in the high energy regime ($E_T>50$ GeV), jet modification appears to be dominated by the radiative energy loss \cite{_hotand, Baier:2000mf}. The evaluation of the amount of energy lost--via radiative process--during the interaction with the medium can provide insights into the dynamics of the constituent of QGP. 
+
+The study of the jet energy loss has stimulated the need to develop innovative many-body perturbative QCD approaches. All of the computation of the radiative energy loss formalisms were limited in the single gluon radiation \cite{Gyulassy:1999zd,Armesto:2003jh}. The non-Abelian behavior of QCD makes the calculation beyond the first order an extremely hard problem. However, in order to fully understand what is happening on the experimental side, a realistic energy loss model must include multiple gluon emission \cite{Armesto:2011ht}. From the Quantum Electrodynamic (QED) perspective, the concept of multiple soft and collinear radiative photon emission is fully understood \cite{Peskin:1995ev}. The probability distribution for emitting multiple radiative photons has been resummed and shown to follow a Poisson distribution
+\begin{equation}
+	dN^{(n)}_\gamma (\{s_i\}) =\frac{1}{n!} \prod_{i=1}^{n} dN^{(1)}_\gamma(s_i),
+	\label{distr}
+\end{equation}
+where $dN^{(1)}_\gamma(s_i)$ represents the differential probability distribution for emitting a photon with soft momentum $s_i$. \Eq{distr} implies that each emission of radiative photons is independent. In some energy loss formalisms such as GLV (Gyulassy, Levai and Vitev) \cite{Armesto:2015ioy, Gyulassy:2000fs, Gyulassy:2002yv} and ASW (Armesto, Salgado and Wiedemann) \cite{Armesto:2015ioy}, multiple gluon emission is computed using a similar assumption where the distribution follows the Poisson convolution of the single inclusive gluon distribution. However, a question remains as to whether the gluons are emitted independently (Poisson Ansatz) or not. The main difference between the theory of electrodynamic and the strong force lies in the fact that QCD is non-Abelian. Therefore, it is expected that the gluons are correlated and the distribution should exhibit a non-Poissonian nature.
+
+The present paper brings new approach using recent mathematical tools in the computation of scattering amplitudes to study the radiative energy loss formalism in QCD which could present a potential insights toward the understanding of the QGP. For the sake of total pedagogical clarity, we briefly review basic tools for simplifying computation of multi-jet process in QCD such as color kinematic duality, spinor helicity formalism, little group scaling and BCFW (Britto, Cachazo, Feng and Witten) formalism. We then for the first time compute the QCD parent amplitude $(qg\rightarrow qg)$, which is used to model the interaction of a parton (quark) with the  medium, using the BCFW formalism and the little group scaling in order to emphasize the efficiency of the MHV calculations. By exploiting these properties, we use the MHV techniques to introduce the study of the QGP in a different approach. The momentum distribution is thereafter evaluated for one, two and three emission of radiative gluons. We find that the non-Abelian nature of QCD affects significantly the way gluons are distributed.
+
+
+\section{Experimental evidence of neutrino oscillation phenomenon}
+\label{sec:experiment}
+
+
+\section{Theoretical framework}
+\label{sec:theory}
+
+Neutrinos interacts with other particles via weak interactions which are described
+by the charge current (CC) and neutral current (NC) interaction Lagrangians:
+\begin{align}
+\mathcal{L}_{CC} &= - \frac{g}{2 \sqrt{2}} \mathcal{J}^{CC}_\rho W^\rho + h.c, \\
+\mathcal{L}_{NC} &= - \frac{g}{2 \cos(\theta_W)} \mathcal{J}^{NC}_\rho Z^\rho,
+\end{align}
+where $g$ represents the $SU(2)_L$ gauge coupling constant and $\theta_W$ the weak
+angle. Furthermore, the charged and neutral current that are respectively denoted
+by $\mathcal{J}^{CC}_\rho$ and $\mathcal{J}^{NC}_\rho$ are defined as:
+\begin{align}
+\mathcal{J}^{CC}_\rho &= 2 \sum_{l} \bar{\nu}_{lL} \gamma_\rho l_L, \\
+\mathcal{J}^{NC}_\rho &= \sum_{l} \bar{\nu}_{lL} \gamma_\rho \nu_{lL},
+\end{align}
+where the charged leptonic field $l$ can be one of the neutrino flavors $(e, \mu, \tau)$.
+
+If the neutrinos have zero-masses, then the left-handed neutrino field $\nu_{\alpha L}$
+with flavor $\alpha$ can be written as a superposition of the left-handed components
+$\nu_{iL}$ of the neutrino field with mass $m_i$. In an ultra-relativistic scenario, we
+have:
+\begin{align}
+\nu_{\alpha L} = U_{\alpha i} \nu_{i L}
+\label{eq:superposition}
+\end{align} 
+where repeated indices are summed over. Henceforth, we use Greek letters to refer to
+the neutrino masses and Latin letters to refer to the flavours. The neutrino masses
+$i$ runs from $1$ to $N$ where $N$ denotes the number of massive neutrinos. In this
+project, we are only going to focus in the case $N=3$.
+
+In \Eq{eq:superposition}, $U$ is a unitary matrix. This implies that a flavor eigenstate
+$\kt{\nu_\alpha}$ can be written as a superposition of different mass eigenstates $\kt{\nu_i}$
+in the following way:
+\begin{align}
+\kt{\nu_{\alpha L}} &= U^\star_{\alpha i} \kt{\nu_i}, \\
+\kt{\bar{\nu}_{\alpha L}} &= U_{\alpha i} \kt{\bar{\nu}_i}.
+\end{align}
+Assuming that we have three $(03)$ massive neutrinos and that the neutrinos are Dirac
+particles, the mixing unitary matrix $U$ can be written as:
+\begin{align}
+U = \cdots ,
+\end{align}
+where $c_{ij} = \cos(\theta_{ij})$ and $s_{ij} = \sin(\theta_{ij})$. Here, $\theta_{ij}$
+denote the mixing angles while $\delta$ denotes the Dirac-type CP-phase. Defining 
+$\Delta_{ij} = m_i^2 - m_j^2$ and ordering the masses such that $\Delta_{21}^2 > 0$
+and $\Delta_{21}^2 < \Delta_{31}^2$, we have the following constraints:
+\begin{align}
+0 \leq \theta_{ij} \leq \frac{\pi}{2} \quad (i \neq j), \quad 0 \leq \delta \leq 2 \pi .
+\end{align}
+
+
+\subsection{Neutrino evolution equation in vacuum and in matter}
+\label{subsec:evoleq}
+
+The evolution equation of a generic neutrino state $\kt{\nu(t)}$ is described by a
+Shrödinger-like equation:
+\begin{align}
+i \partial_t \kt{\nu(t)} = H \kt{\nu(t)},
+\end{align}
+where $H$ represents the Hamiltonian operator. Expressed in the flavor eigenstate
+basis $\kt{\nu_\alpha}$, the above equation translates into
+\begin{align}
+i \partial_t v^{(f)}(t) = H^{(f)} \nu^{(f)}(t),
+\end{align}
+where $v^{(f)}(t)$ denotes the vector describing the flavor content of the neutrino state
+$\kt{\nu(t)}$. Elements of the Hamiltonian matrix $H^{(f)}$ are given by
+\begin{align}
+H^{(f)}_{\alpha \beta} = \bkt{\nu_\alpha}{H}{\nu_\beta}.
+\end{align}
+In the mass eigenstate basis, the vacuum Hamiltonian $H^{(m)}$ (where $m$ indicates the
+mass eigenstate representation) is determined in terms of the neutrino masses
+\begin{align}
+H^{(m)}_{vac} &= \mathrm{diag} \left( \sqrt{\vec{p}^2 + m_1^2}, \sqrt{\vec{p}^2 + m_2^2},
+\sqrt{\vec{p}^2 + m_3^2} \right), \nonumber \\
+&\approx \vert \vec{p} \vert + \frac{1}{2 \vert \vec{p} \vert} \mathrm{diag} \left( m_1^2, 
+m_2^2, m_3^2 \right).
+\end{align}
+In the first equality we assumed that the neutrino state $\kt{\nu (t)}$ can be described
+as a superposition of states with fixed momentum $\vec{p}$. In the last line, we used the
+ultra-relativistic approximation $\sqrt{\vec{p}^2 + m_i^2} \sim \vert \vec{p} \vert + m_i^2
+/2 \vert \vec{p} \vert$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\nocite{*}
+\bibliographystyle{unsrtnat}
+\bibliography{biblio}
+
+
+\end{document}
+
