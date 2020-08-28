@@ -28,10 +28,21 @@
 	urlcolor=cyan,
 }
 
+\usepackage{graphicx}
+\usepackage{wrapfig}
+%\usepackage{sidecap}
+\usepackage{subcaption}	 
+\usepackage{lipsum}  
+
+% Define path to plots
+\graphicspath{{../pythonCode/analysis/plots/Osc3Neutrinos/}}
+
 \newcommand{\kt}[1]{\vert #1 \rangle}
+\newcommand{\bt}[2]{\langle #1 \vert #2 \rangle}
 \newcommand{\bkt}[3]{\langle #1 \vert #2 \vert #3 \rangle}
 
 \newcommand{\Eq}[1]{Eq.$\:$(\ref{#1})}
+\newcommand{\myref}[1]{Ref.$\:$\cite{#1}}
 \newcommand{\Fig}[1]{Fig.$\:$\ref{#1}}
 \newcommand{\App}[1]{App.$\:$\ref{#1}}
 \newcommand{\SubApp}[2]{App.$\:$\ref{#1}.\ref{#2}}
@@ -53,22 +64,6 @@ Via Celoria 16, Milano 20133, Italy}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-One of the prominent features of the non-Abelian theory of the strong force or Quantum Chromodynamics (QCD) at low energy is \emph{color confinement}. Color confinement is a property of QCD which basically states that isolated quarks and gluons cannot exist in nature \cite{Marciano:1977su}. In this energy regime, the non-Abelian nature of QCD makes the theory extremely hard to solve and it may even be impossible to analytically obtain a solution. Indeed, due to the strength of the coupling constant, the usual perturbative approach cannot be applied and one has to rely on numerical approaches such as Lattice QCD (LQCD) \cite{Beringer:1900zz}.
-
-Unlike the quantum field theory of electrodynamics (QED), the coupling strength of the QCD is weak at short distances, that is at high energy. The weakening of the coupling constant is known as \emph{asymptotic freedom}. The property of asymptotic freedom was discovered by D. Gross and F. Wilczek \cite{Gross:1973id} and independently by D. Politzer in 1973 \cite{Politzer:1973fx}. This discovery leads to the prediction of the existence of a deconfined state made of free quarks and gluons \cite{Cabibbo:1975ig,Collins:1974ky}. The aim of heavy-ion experiments at the Relativistic Heavy Ion Collider (RHIC) at Brookhaven National Laboratory (BNL) in the United States and the Large Hadron Collider (LHC) at the European Organization for Nuclear Research (CERN) in Switzerland is to collide heavy-ions so as to create immensely high energy densities which could produce a system of deconfined quarks and gluons \cite{Schmidt:1992ge,Harris:1996zx}. 
-
-In 2003, by making head-on collisions between gold-ions (Au-Au) at the center of mass energy of $\sqrt{s_{NN}} \sim 200$ GeV, scientists at RHIC for the first time produced an ultra-hot and dense soup made of asymptotically free weakly-interacting quarks and gluons \cite{Gyulassy:2004zy,Adcox:2004mh,Arsene:2004fa,Back:2004je}. This new state of matter characterized by an equilibrium system composed of deconfined quarks and gluons is known as Quark-Gluon Plasma (QGP) \cite{Adams:2005dq, Heinz:2000bk}. Starting in 2010, CERN extended the work at BNL to even higher energy and density by colliding lead-ions (Pb-Pb) at $\sqrt{s_{NN}}\sim 2,76$ TeV \cite{Aad:2010bu, Chatrchyan:2011pe, Aamodt:2010jd, Aamodt:2010pa}. Data collected from LHC have confirmed the existence of QGP. One of the most exciting results from experiments conducted both at CERN and RHIC is the depletion of high transverse momentum $(p_\perp)$ hadrons \cite{Aiola:2014cja, Chatrchyan:2011sx, ALICE:2012ab} which is a signature of a color opaque medium, technically known as \textit{jet quenching}. The term jet quenching refers to the modification of the evolution of a high energy parton passing through the QGP due to its interaction with the medium \cite{Armesto:2015ioy}. Data collected at heavy-ion experiments (RHIC and LHC) suggested that jet quenching is a consequence of the energy loss of the primordial parton \cite{Antinori:2005tu, Qin:2015srf, Lee:2013bka, Gyulassy:2003mc}. Jet quenching is important because it provides a valuable tool to probe the properties of QGP produced in heavy-ion collisions \cite{Armesto:2011ht}.
-
-The jet quenching phenomenon can be understood in the following way: the formation of a deconfined quark-gluon plasma at a very early stage of a relativistic heavy-ion collision engenders the creation of high momentum partons (quarks or gluons). In high energy regimes (coupling constant $\alpha_s\ll 1$), the physics of the QGP-matter is governed by the weak-coupling physics of Quantum Chromodynamics (QCD) \cite{Baier:2000mf,Pasechnik:2016wkt} which is in the domain of applicability of perturbative-QCD (pQCD). Thus, in the weakly-coupled regime one may use pQCD to study the physics of the QGP energy loss \cite{Horowitz:2007su, Bouras:2013una,Shuryak:1983zb}. The interaction of these self-generated partons with the surrounding medium leads to an energy loss. The exact source of parton energy loss is directly tied to the balance between \emph{collisional energy loss} and \emph{radiative energy loss}. The collisional energy loss occurs when the self-generated parton loses energy via elastic collision with other particles composing the medium \cite{Bjorken:1982tu}. On the other hand, the inelastic scattering of a high energy parton and a thermal gluon can yield the emission of gluon radiations (Bremsstrahlung gluons) and the decrease of the energy \cite{Gyulassy:1993hr,Baier:2000mf,Wang:2003mm,Chen:2010te}. Data collected from ultrarelativistic heavy-ion experiments at LHC suggested that in the high energy regime ($E_T>50$ GeV), jet modification appears to be dominated by the radiative energy loss \cite{_hotand, Baier:2000mf}. The evaluation of the amount of energy lost--via radiative process--during the interaction with the medium can provide insights into the dynamics of the constituent of QGP. 
-
-The study of the jet energy loss has stimulated the need to develop innovative many-body perturbative QCD approaches. All of the computation of the radiative energy loss formalisms were limited in the single gluon radiation \cite{Gyulassy:1999zd,Armesto:2003jh}. The non-Abelian behavior of QCD makes the calculation beyond the first order an extremely hard problem. However, in order to fully understand what is happening on the experimental side, a realistic energy loss model must include multiple gluon emission \cite{Armesto:2011ht}. From the Quantum Electrodynamic (QED) perspective, the concept of multiple soft and collinear radiative photon emission is fully understood \cite{Peskin:1995ev}. The probability distribution for emitting multiple radiative photons has been resummed and shown to follow a Poisson distribution
-\begin{equation}
-	dN^{(n)}_\gamma (\{s_i\}) =\frac{1}{n!} \prod_{i=1}^{n} dN^{(1)}_\gamma(s_i),
-	\label{distr}
-\end{equation}
-where $dN^{(1)}_\gamma(s_i)$ represents the differential probability distribution for emitting a photon with soft momentum $s_i$. \Eq{distr} implies that each emission of radiative photons is independent. In some energy loss formalisms such as GLV (Gyulassy, Levai and Vitev) \cite{Armesto:2015ioy, Gyulassy:2000fs, Gyulassy:2002yv} and ASW (Armesto, Salgado and Wiedemann) \cite{Armesto:2015ioy}, multiple gluon emission is computed using a similar assumption where the distribution follows the Poisson convolution of the single inclusive gluon distribution. However, a question remains as to whether the gluons are emitted independently (Poisson Ansatz) or not. The main difference between the theory of electrodynamic and the strong force lies in the fact that QCD is non-Abelian. Therefore, it is expected that the gluons are correlated and the distribution should exhibit a non-Poissonian nature.
-
-The present paper brings new approach using recent mathematical tools in the computation of scattering amplitudes to study the radiative energy loss formalism in QCD which could present a potential insights toward the understanding of the QGP. For the sake of total pedagogical clarity, we briefly review basic tools for simplifying computation of multi-jet process in QCD such as color kinematic duality, spinor helicity formalism, little group scaling and BCFW (Britto, Cachazo, Feng and Witten) formalism. We then for the first time compute the QCD parent amplitude $(qg\rightarrow qg)$, which is used to model the interaction of a parton (quark) with the  medium, using the BCFW formalism and the little group scaling in order to emphasize the efficiency of the MHV calculations. By exploiting these properties, we use the MHV techniques to introduce the study of the QGP in a different approach. The momentum distribution is thereafter evaluated for one, two and three emission of radiative gluons. We find that the non-Abelian nature of QCD affects significantly the way gluons are distributed.
 
 
 \section{Experimental evidence of neutrino oscillation phenomenon}
@@ -117,6 +112,7 @@ Assuming that we have three $(03)$ massive neutrinos and that the neutrinos are 
 particles, the mixing unitary matrix $U$ can be written as:
 \begin{align}
 U = \cdots ,
+\label{eq:evolution_matrix}
 \end{align}
 where $c_{ij} = \cos(\theta_{ij})$ and $s_{ij} = \sin(\theta_{ij})$. Here, $\theta_{ij}$
 denote the mixing angles while $\delta$ denotes the Dirac-type CP-phase. Defining 
@@ -133,12 +129,12 @@ and $\Delta_{21}^2 < \Delta_{31}^2$, we have the following constraints:
 The evolution equation of a generic neutrino state $\kt{\nu(t)}$ is described by a
 Shrödinger-like equation:
 \begin{align}
-i \partial_t \kt{\nu(t)} = H \kt{\nu(t)},
+\mathrm{i} \partial_t \kt{\nu(t)} = H \kt{\nu(t)},
 \end{align}
 where $H$ represents the Hamiltonian operator. Expressed in the flavor eigenstate
 basis $\kt{\nu_\alpha}$, the above equation translates into
 \begin{align}
-i \partial_t v^{(f)}(t) = H^{(f)} \nu^{(f)}(t),
+\mathrm{i} \partial_t v^{(f)}(t) = H^{(f)} \nu^{(f)}(t),
 \end{align}
 where $v^{(f)}(t)$ denotes the vector describing the flavor content of the neutrino state
 $\kt{\nu(t)}$. Elements of the Hamiltonian matrix $H^{(f)}$ are given by
@@ -156,7 +152,299 @@ m_2^2, m_3^2 \right).
 In the first equality we assumed that the neutrino state $\kt{\nu (t)}$ can be described
 as a superposition of states with fixed momentum $\vec{p}$. In the last line, we used the
 ultra-relativistic approximation $\sqrt{\vec{p}^2 + m_i^2} \sim \vert \vec{p} \vert + m_i^2
-/2 \vert \vec{p} \vert$.
+/2 \vert \vec{p} \vert$. The new Hamiltonian in the flavor eigenstates therefore reads
+\begin{align}
+H^{(f)}_{\alpha \beta, vac} = U_{\alpha i} H^{(m)}_{ij, vac} U^\dagger_{i \beta}
+\end{align}
+
+In the presence of matter, we have to add the vacuum Hamiltonian an effective potential
+$V$ in the evolution equation
+\begin{align}
+i \partial_t \kt{\nu (t)} = \left( H_{vac} + V \right) \kt{\nu (t)},
+\end{align}
+where in the context of SM, the effective potential is a matrix that is diagonal in the
+flavor basis $V^{(f)} = \mathrm{diag} \left( V_e, V_\nu, V_\tau \right)$.
+
+
+\subsection{Survival probability}
+\label{subsec:survival}
+
+Assuming that a neutrino is created a a time $t_0 = 0$ at a point $x_0 = 0$, the flavor
+state $\kt{\nu (t)}$ in the flavor eigenstate basis can be written as 
+\begin{align}
+\nu^{(f)} (0) = \left( \bt{\nu_e}{\nu(0)}, \bt{\nu_\mu}{\nu(0)}, \bt{\nu_\tau}{\nu(0)}
+\right)^\mathrm{T}.
+\end{align}
+After some interval of time $t$ at a given point $x$, its flavor has evolved  according to
+\begin{align}
+\nu^{(f)} (x) = S^{(f)} (x) \nu^{(f)}(0),
+\end{align}
+where the evolution operator $S$ is expressed as
+\begin{align}
+S^{(f)} = T \left[ \mathrm{exp} \left( - \mathrm{i} \int_{0}^{x} \mathrm{d}\tilde{x} \:
+H^{(f)} (\tilde{x}) \right) \right].
+\end{align}
+In the above equation, $\mathrm{T}$ represents the time ordering operator. Therefore, 
+the probability to detect a neutrino of flavor $\nu_\beta$ at a distance $L$
+from its initial position (where its initial flavor is known) is given by
+\begin{align}
+P (\nu_\beta \longleftarrow \nu_\alpha) = \vert S^{(f)}_{\beta \alpha (L)} \vert^2.
+\label{eq:prob_s}
+\end{align}
+This implies that the survival probability $P (\nu_\alpha \longleftarrow \nu_\alpha)$
+is given by the following
+\begin{align}
+P (\nu_\alpha \longleftarrow \nu_\alpha) = 1 - P (\nu_\beta \longleftarrow \nu_\alpha).
+\end{align}
+The above expression is a consequence of the unitarity of the mixing matrix 
+$\sum_\beta P (\nu_\beta \longleftarrow \nu_\alpha) = 1$.
+
+
+\subsection{Vacuum neutrino oscillations}
+\label{subsec:2neutrinoOsc}
+
+As it was presented in the previous section, in vacuum the neutrino Hamiltonian $H$ is
+constant. Hence, the evolution operator can be written as
+\begin{align}
+S^{(f)} = U S^{(m)} U^\dagger .
+\end{align}
+The evolution operator in the mass eigenstate (denoted by the $(m)$) is a diagonal matrix
+that is function of $\phi_i = -m_i^2 x / 2 \vert \vec{p} \vert$
+\begin{align}
+S^{(m)} = \mathrm{diag} \left( \mathrm{exp}(i \phi_1), \mathrm{exp}(i \phi_2), 
+\mathrm{exp}(i \phi_3) \right) .
+\end{align}
+The probability of observing a neutrino of flavor $\nu_\alpha$ to change into a neutrino
+of flavor $\nu_\beta$ is given by
+\begin{align}
+P (\nu_\beta \longleftarrow \nu_\alpha) = \left( U_{\beta i} U^\star_{\alpha i} 
+U^\star_{\beta j} U_{\alpha j} \right) \mathrm{exp}(i \phi_{ij}),
+\label{eq:prob}
+\end{align}
+where in the ultra-relativistic limit $\vert \vec{p} \vert \sim E$ and hence
+$\phi_{ij} = \left( \Delta_{ij} L \right) / (2 E)$.
+From this result, we are now equipped with the tools needed to compute the oscillation
+probabilities. For the case of two neutrino flavor mixing, we only consider one 
+non-vanishing mixing angle $\theta_{ij}$ in the evolution operator $U$ described
+by \Eq{eq:evolution_matrix}. The oscillation probability in \Eq{eq:prob} then leads
+to the following well known result
+\begin{align}
+P (\nu_\beta \longleftarrow \nu_\alpha) = \sin^2 (2 \theta_{ij}) \sin^2 \left(
+\frac{\Delta_{ij}^2 L}{4 E} \right) .
+\label{eq:2OscProb}
+\end{align}
+Notice that in the above expression, $\alpha$ has to be different from $\beta$ 
+$(\alpha \neq \beta)$ and depending on the non-vanishing mixing angle, we end up with
+different flavor changes, i.e.:
+\begin{align}
+\theta_{12} & \neq 0 \Longleftrightarrow P (\nu_\mu \longleftarrow \nu_e), \\
+\theta_{23} & \neq 0 \Longleftrightarrow P (\nu_\tau \longleftarrow \nu_\mu), \\
+\theta_{13} & \neq 0 \Longleftrightarrow P (\nu_\tau \longleftarrow \nu_e) .
+\end{align}
+In the three-neutrino case, by performing the same steps and using further constraint
+on the masses as introduced previously $(\Delta_{21}^2 << \vert \Delta_{31}^2 \vert)$,
+we have for instance, for $\nu_e \longrightarrow \nu_\mu$, the following probability
+\begin{align}
+P (\nu_\mu \longleftarrow \nu_e) =& s_{23}^{2} S_{23} \sin^2 (2 \theta_{13})  \nonumber \\
+& + c_{23}^{2} S_{12} \sin^2(2 \theta_{12}) - 8 J S_{12} S_{13} ,
+\end{align} 
+where $S_{ij} = \sin^2 \left( \Delta_{ij}^2 L / (4E) \right)$ and 
+\begin{align}
+J = \cdots .
+\end{align}
+
+
+\section{Phenomenology of neutrino oscillation probabilities}
+\label{sec:pheno}
+
+In this section, 
+
+\begin{figure}
+\captionsetup[subfigure]{aboveskip=-1.5pt,belowskip=-1.5pt} 
+\begin{subfigure}{1.05\linewidth}
+\includegraphics[width=\linewidth]{Osc3VacuumBaseline.pdf}
+\caption{Varying distance (baseline).} 
+\label{higgs:sspt} 
+\end{subfigure} 
+\\
+\begin{subfigure}{1.05\linewidth}
+\includegraphics[width=\linewidth]{Osc3VacuumEnergy.pdf}
+\caption{Varying energy.} 
+\label{fig:vacuum} 
+\end{subfigure}
+\caption{Three-neutrino oscillation probabilities in vacuum with varying (a) baseline
+and (b) varying energy. The top panels show the actual probabilities while the bottom
+panels show the sum of each probability.}
+\end{figure}
+
+\subsection{Numerical insights}
+\label{subsec:numerical}
+
+From the analytical point of view, computing probabilities of flavor transition involve
+diagonalizing the Hamiltonian operator. This procedure, however, can be complicated especially
+when one studies neutrino oscillations in matter. As is often done, careful studies of
+perturbative methods that lead to some approximations are used in order to computed these
+probabilities. As described in \cite{}, numerical methods can bring new insights into 
+understanding how these probabilities are computed. The resulting methods provide strategies
+to explore non-standard oscillations where the Hamiltonians do not have generic analytical
+solutions. 
+
+In this project, we follow closely the method described in \myref{} first introduced
+by Ohlsson and Snellman in \myref{}. It consists on expanding the Hamiltonian operator 
+that enters in the expression of the evolution operator in terms of $SU(2)$ and $SU(3)$ 
+matrices. The steps for such a calculation can be broken down into the following steps:
+\begin{itemize}
+\item[-] First, the Hamiltonian is expanded in terms of the Pauli matrices in the case of
+two-neutrino oscillation, and in terms of the Gell-Mann matrices in the case of 
+three-neutrino flavors.
+\item[-] Compute the coefficients of the expansions in terms of the components of the
+Hamiltonian.
+\item[-] The exponent $\exp (\mathrm{i} H t)$ is then expanded using the Cayley-Hamilton theorem
+which states that any analytic function of an $n \times n$ matrix can be written as a 
+polynomial of degree $(n-1)$ in that matrix.
+\item[-] Compute the evolution operator in terms of the coefficients in the Hamiltonian
+series and derive the corresponding probability.
+\end{itemize}
+In this report, we only illustrate the case for two-neutrino oscillations. For the 
+three-neutrino case, refer to \myref{}. Let us denote the two-neutrino Hamiltonian
+by $\mathrm{H}_2$. Its expansion in terms of the Pauli matrices $\sigma^i$ is given by
+\begin{align}
+\mathrm{H}_2 = h_0 + h_i \sigma^i \quad \quad (i=1,2,3).
+\end{align}
+The coefficients $h_k$ are fully determined by the components of the Hamiltonian matrix
+and can be easily computed using the explicit expression of the Pauli matrices.
+\begin{align}
+h_0 = 
+\end{align}
+The evolution operator $\mathrm{U}_2$ for the twp-neutrino oscillations case can
+therefore be written as
+\begin{align}
+\mathrm{U}_2 = \exp \left( - \mathrm{i} (h_0 + h_i \sigma^i) L \right).
+\end{align}
+The first term in the exponent does not affect the probability and therefore can be 
+ignored. Hence, the evolution operator just becomes $\mathrm{U}_2 = \exp (- \mathrm{i}
+h_i \sigma^i L)$. Using Euler's formula, the above expression yields
+\begin{align}
+\mathrm{U}_2 = \cos (\vert h \vert L) -  \frac{\mathrm{i}}
+{\vert h \vert} \sin (\vert h \vert L) h_i \sigma^i ,
+\end{align}
+where $\vert h \vert = \sqrt{ \vert h_1 \vert^2 + \vert h_2 \vert^2 +
+\vert h_3 \vert^2}$. We can now compute the survival probability 
+\begin{align}
+P (\nu_\alpha \longleftarrow \nu_\alpha) = \vert \nu_\alpha^\dagger \mathrm{U}_\alpha
+\nu_\alpha \vert^2 .
+\label{eq:prob_norm}
+\end{align} 
+Considering $\nu_\alpha = (1,0)^\mathrm{T}$, we can compute the terms that enter in the
+expression of the probability in \Eq{eq:prob_norm}
+\begin{align}
+\nu_\alpha^\dagger \mathrm{U}_\alpha \nu_\alpha = \cos (\vert h \vert L) - \mathrm{i}
+\frac{h_3}{\vert h \vert} \sin (\vert h \vert L).
+\end{align}
+Putting this expression back into \Eq{eq:prob_norm}, and with some algebras we can
+derive the final expression of the survival probability of a neutrino of flavor $\alpha$,
+\begin{align}
+P (\nu_\alpha \longleftarrow \nu_\alpha) =  \cos^2 (\vert h \vert L) +
+\frac{\vert h_3 \vert^2 }{\vert h \vert^2} \sin^2 (\vert h \vert L).
+\end{align}
+Therefore, the expression of the two-neutrino oscillation probabilities that a neutrino
+of flavor $\alpha$ is detected with a flavor $\beta$ is given by the following simple
+relation:
+\begin{align}
+P (\nu_\beta \longleftarrow \nu_\alpha) = 1 - P (\nu_\alpha \longleftarrow \nu_\alpha).
+\end{align}
+
+Let us now show that using this approach, we re-derive the two-neutrino oscillation
+probability given by \Eq{eq:2OscProb}. For two-neutrino flavor oscillation, the vacuum
+Hamiltonian operator is defined as
+\begin{align}
+\mathrm{H}_2^{vac} = \frac{1}{2 E} \mathrm{R}_{2, \theta} \mathrm{H}^{(m)}_2 
+\mathrm{R}_{2, \theta}^\dagger ,
+\end{align}
+where $\mathrm{R}_{2, \theta}$ represents an Euler rotation with angle $\theta_{ij}$
+and $\mathrm{H}^{(m)}_2$ is given by 
+\begin{align}
+\mathrm{H}^{(m)}_2 = \mathrm{diag} \left( \frac{\Delta_{ij}^2}{2}, - \frac{\Delta_{ij}^2}{2} \right). 
+\end{align}
+Using the coefficients $h_i$ to compute $\vert h \vert$, putting the explicit expression 
+of the coefficients into \Eq{eq:prob_norm}, and doing some simplification, we arrive at 
+the following expression
+\begin{align}
+P (\nu_\beta \longleftarrow \nu_\alpha) = \sin^2 (2 \theta_{ij}) \sin^2 \left(
+\frac{\Delta_{ij}^2 L}{4 E} \right) ,
+\end{align} 
+which is exactly the same as in \Eq{eq:prob_norm}. The difference being that this approach
+can be easily implemented numerically to compute oscillations in matter. Going into full
+details of using this method to compute the three-oscillation probabilities or to study
+neutrino oscillations in matter is beyond the scope of this project and will be left
+aside. For complete details and computations, refer to \myref{}. The next section, however,
+will present results beyond the two-neutrino oscillations both in vacuum and in matter.
+
+
+\subsection{Phenomenological results}
+\label{subsec:results}
+
+This section is dedicated to the phenomenological study of the three-neutrino oscillations
+both in vacuum and in presence of matter with constant density. To compute the oscillation
+probabilities, the only input parameters that we vary are the energy $E$ and the distance
+traveled by the neutrino $L$. The other parameters such as the masses and the mixing angles
+that enter in the expression of the PMNS mixing matrix are extracted from the NuFit code 
+that fix the parameters to experimental data in order to find the best-fit values. These
+parameters are summarized in Table \ref{tab:params}.
+\begin{table}[!ht]
+\centering
+\begin{tabular}[t]{|c|c|}
+\hline
+\textbf{Parameters} 		& \textbf{Numerical Values} \\
+\hline
+$\delta_{CP}$			& $217^{\circ}$  \\
+\hline
+$\sin^2 \theta_{12}$		& $0.310$ \\
+\hline
+$\sin^2 \theta_{23}$		& $0.582$ \\
+\hline
+$\sin^2 \theta_{13}$		& $0.022$ \\
+\hline
+$\Delta_{21}$			& $7.391 \cdot 10^{-5}$ \\
+\hline
+$\Delta_{31}$			& $2.525 \cdot 10^{-3}$ \\
+\hline
+\end{tabular}
+\caption{Numerical values of the mass differences $\Delta_{ij}$ and mixing angles
+$\theta_{ij}$ extracted from a global fit to oscillation data \cite{Esteban:2018azc, }.}
+\label{tab:params}
+\end{table}
+
+The plots shown in this project were produced using python codes \cite{} which in turn rely
+on an external python library called \texttt{NuOsc} \cite{}.
+
+In \Fig{fig:vacuum}, we plot the three-neutrino oscillation probabilities as a function of
+the baseline $L$ and energy $E$. In particular, we plot the probability that a neutrino
+with an initial flavor $\nu_e$ oscillates between flavors $\nu_\beta$ (with $\beta = e,
+\mu, \tau$). We can clearly see in the bottom panels that the sum of all probabilities
+exactly gives one. For small values of $L$, we see that the probability that the 
+electron-neutrino does not oscillate is high. As the neutrino traverses more distances,
+this probability fluctuates, and in some regions smaller than the probability of the
+neutrino to have a flavor $\nu_\mu$ or $\nu_\tau$.
+
+\begin{figure}
+\captionsetup[subfigure]{aboveskip=-1.5pt,belowskip=-1.5pt} 
+\begin{subfigure}{1.05\linewidth}
+\includegraphics[width=\linewidth]{Osc3MatterBaseline.pdf}
+\caption{Varying distance (baseline).} 
+\label{higgs:sspt} 
+\end{subfigure} 
+\\
+\begin{subfigure}{1.05\linewidth}
+\includegraphics[width=\linewidth]{Osc3MatterEnergy.pdf}
+\caption{Varying energy.} 
+\label{fig:matter} 
+\end{subfigure}
+\caption{Three-neutrino oscillation probabilities in matter with varying (a) baseline
+and (b) varying energy.}
+\end{figure}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\nocite{*}
