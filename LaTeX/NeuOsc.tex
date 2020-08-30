@@ -28,9 +28,10 @@
 	urlcolor=cyan,
 }
 
+\usepackage{mhchem}
 \usepackage{graphicx}
 \usepackage{wrapfig}
-%\usepackage{sidecap}
+\usepackage{sidecap}
 \usepackage{subcaption}	 
 \usepackage{lipsum}  
 
@@ -46,7 +47,12 @@
 \newcommand{\Fig}[1]{Fig.$\:$\ref{#1}}
 \newcommand{\App}[1]{App.$\:$\ref{#1}}
 \newcommand{\SubApp}[2]{App.$\:$\ref{#1}.\ref{#2}}
-\newcommand{\Sec}[1]{Sec.$\:$\ref{#1}}
+\newcommand{\Sec}[1]{Section$\:$\ref{#1}}
+
+% For units
+\usepackage{siunitx}
+\newcommand{\gev}[1]{\SI{#1}{\giga\electronvolt}}
+\newcommand{\tev}[1]{\SI{#1}{\tera\electronvolt}}
 %************************************************************************************************************
 
 \begin{document}
@@ -61,13 +67,94 @@ Via Celoria 16, Milano 20133, Italy}
 \maketitle
 %\tableofcontents
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
+Since the idea of neutrino oscillations has been hypothesized by Potencorvo in 1957
+\cite{Potencorvo:1957cp, Pontecorvo:1957qd}, important experimental and theoretical
+developments have emerged from the study of the properties of neutrino. Chief among
+these findings is the fact that there has to be physics beyond the Standard Model 
+(SM). The theoretical framework of neutrino mixing and masses for explaining neutrino
+oscillations his now firmly established. To date, the size of the mass-squared 
+difference together with the mixing angles have been measured. However, despite the
+incredible precision (better than $10 \%$) in measuring the mass-mixing parameters, 
+the picture is not complete yet. The ordering and scale of the neutrino masses is not
+fully understood yet along with the value of the Dirac-phase $\delta$. Furthermore, 
+flavor oscillations do not probe the nature of the neutrino fields-whether it is Dirac 
+or Majorama.
+
+Various programs worldwide are currently being pursued in order to provide more
+experimental capabilities to tackle these issues \cite{Acciarri:2015uup, Antonello:2015lea, 
+An:2015jdp, Djurcic:2015vqa, Adamson:2016tbq, Kim:2014rfa,  Adamson:2016xxw, Abe:2015awa,
+Adams:2013qkq}. For instance, in order to make a precise measurement of the Dirac phase, an 
+unprecedented amount of neutrino oscillation data will be needed in order to reduce the 
+statistical errors. This could only be achieved with new detectors with larger mass and 
+higher power beams.
+
+This summary project consists of four sections. In \Sec{sec:experiment}, we give a short
+overview of the experimental probes that led to the discovery of the neutrino oscillations.
+In \Sec{sec:theory}, we give the theoretical aspects of the neutrino oscillation probabilities
+by highlighting the definition of survival probability. Phenomenological results are presented
+in \Sec{sec:pheno}. Finally, conclusions and discussion on the remaining opened problems are
+drawn in \Sec{sec:conclusion}.
 
 
-\section{Experimental evidence of neutrino oscillation phenomenon}
+\section{Experimental probe of neutrino oscillation phenomenon}
 \label{sec:experiment}
+
+Experimental evidence of neutrino oscillations can be studied from various sources:
+atmospheric neutrinos, nuclear-reactor neutrinos, and neutrino-antineutrino accelerator
+beams. The atmospheric neutrinos result from the interaction of cosmic rays and the
+atmosphere and mostly come from the following reactions:
+\begin{align}
+\pi^\pm  &\longrightarrow \mu^\pm + \nu_\mu / \bar{\nu}_\mu, \\
+\mu^\pm  &\longrightarrow e^\pm + \nu_e / \bar{\nu}_e + \bar{\nu}_\mu / \nu_\mu .
+\end{align}
+Production of electron-flavor antineutrino $\bar{\nu}_e$ can be accessed from nuclear
+reactor experiments in which the $\bar{\nu}_e$ are released from the fission of the 
+main isotopes $\left( \ce{^{235}U}, \ce{^{239}Pu} \right)$ used in the nuclear reactors.
+Finally, (anti-)neutrinos can be produced from various collider experiments such as
+CERN, FNAL, and the Los Alamos Neutron Science Center.
+
+Historically, one of the earliest indication of neutrino oscillations was found in 
+atmospheric neutrino experiments that used radeiochemical techniques with the Homestake
+detector \cite{Cleveland:1998nv}. These experiments measure a flux of electron-flavor 
+neutrinos $\nu_e$, originating from the sun, that was significantly lower than the 
+one expected by the Standard Solar Model (SSM). Because solar $\nu_e$ oscillate to 
+different flavors, the detectors which are only sensitive to $\nu_e$ detect smaller 
+number of events. This phenomenon has been known as the \emph{solar neutrino problem} 
+and has been confirmed by different neutrino experiments such as GALLEX 
+\cite{Hampel:1996qd, Anselmann:1993mh}, Kamiokande \cite{Hirata:1988ad, Hirata:1991ub, 
+Fukuda:1996sz}, and Super-Kamiokande \cite{Fukuda:1998fd, Giunti:1999qm}.
+
+The first evidence of neutrino oscillations has been established by studying the 
+atmospheric neutrinos with water \cite{Fukuda:1998mi, Ashie:2004mr} (Kamiokande and 
+Sper-Kamiokande) in 1998. The data exhibit a zenith angle $\theta$ dependent deficit of 
+$\nu_\mu$ which is inconsistent with calculations of neutrino atmospheric fluxes and 
+cannot be explained by the experimental biases and uncertainties. Indeed, if neutrinos
+do not oscillate, the number of observed atmospheric neutrino is predicted to be
+uniform.
+\begin{figure}
+\centering
+\includegraphics[scale=0.425]{zenith}
+\caption{Observed muon-flavor neutrino from the Super-Kamiokande experiment. The \emph{blue}
+curve represents the expected number of event without neutrino oscillation, the \emph{red}
+curve represents the number of events in case of neutrino oscillation, and the \emph{black}
+crosses represent the observed number of events in the Super-Kamiokande detector.}
+\label{fig:superKami}
+\end{figure}
+In \Fig{fig:superKami} we see the number of observed muon-flavor neutrinos as a function of
+the zenith angle $\cos (\theta)$ from the Super-Kamiokande analyses. This results show that
+the number of \emph{upward} going muon neutrinos generated from the outer-atmosphere is half 
+of the number of \emph{downward} going muon neutrino.
+
+This observation suggested that neutrinos change flavors as they propagate from their source,
+(through the medium), to the detectors. Such a mechanism of flavor changes require that the
+neutrinos have more than one mass state which is not allowed by the SM. For this reason, the
+neutrino oscillation provided a direct measurement of physics beyond the SM. Hence, the search
+for understanding of the properties of the neutrinos is considered as one of the most important
+directions for the search for new physics. To date, more than 40 different experiments is
+dedicated to the investigation of the problem of neutrino masses and mixing.
 
 
 \section{Theoretical framework}
@@ -259,23 +346,6 @@ J = \cdots .
 
 In this section, 
 
-\begin{figure}
-\captionsetup[subfigure]{aboveskip=-1.5pt,belowskip=-1.5pt} 
-\begin{subfigure}{1.05\linewidth}
-\includegraphics[width=\linewidth]{Osc3VacuumBaseline.pdf}
-\caption{Varying distance (baseline).} 
-\label{higgs:sspt} 
-\end{subfigure} 
-\\
-\begin{subfigure}{1.05\linewidth}
-\includegraphics[width=\linewidth]{Osc3VacuumEnergy.pdf}
-\caption{Varying energy.} 
-\label{fig:vacuum} 
-\end{subfigure}
-\caption{Three-neutrino oscillation probabilities in vacuum with varying (a) baseline
-and (b) varying energy. The top panels show the actual probabilities while the bottom
-panels show the sum of each probability.}
-\end{figure}
 
 \subsection{Numerical insights}
 \label{subsec:numerical}
@@ -379,6 +449,23 @@ details of using this method to compute the three-oscillation probabilities or t
 neutrino oscillations in matter is beyond the scope of this project and will be left
 aside. For complete details and computations, refer to \myref{}. The next section, however,
 will present results beyond the two-neutrino oscillations both in vacuum and in matter.
+\begin{figure}
+\captionsetup[subfigure]{aboveskip=-1.5pt,belowskip=-1.5pt} 
+\begin{subfigure}{1.05\linewidth}
+\includegraphics[width=\linewidth]{Osc3VacuumBaseline.pdf}
+\caption{Varying baseline with fixed energy $E=10^{-2} \mathrm{GeV}$.} 
+\label{higgs:sspt} 
+\end{subfigure} 
+\\
+\begin{subfigure}{1.05\linewidth}
+\includegraphics[width=\linewidth]{Osc3VacuumEnergy.pdf}
+\caption{Varying energy with fixed baseline $L=2 \cdot 10^3 \mathrm{km}$.} 
+\label{fig:vacuum} 
+\end{subfigure}
+\caption{Three-neutrino oscillation probabilities in vacuum with varying (a) baseline
+and (b) varying energy. The top panels show the actual probabilities while the bottom
+panels shown the sum of the probabilities which exactly sum to one.}
+\end{figure}
 
 
 \subsection{Phenomenological results}
@@ -417,7 +504,23 @@ $\theta_{ij}$ extracted from a global fit to oscillation data \cite{Esteban:2018
 
 The plots shown in this project were produced using python codes \cite{} which in turn rely
 on an external python library called \texttt{NuOsc} \cite{}.
-
+\begin{figure}
+\captionsetup[subfigure]{aboveskip=-1.5pt,belowskip=-1.5pt} 
+\begin{subfigure}{1.05\linewidth}
+\includegraphics[width=\linewidth]{Osc3MatterBaseline.pdf}
+\caption{Varying baseline with fixed energy $E=10^{-2} \mathrm{GeV}$.} 
+\label{higgs:sspt} 
+\end{subfigure} 
+\\
+\begin{subfigure}{1.05\linewidth}
+\includegraphics[width=\linewidth]{Osc3MatterEnergy.pdf}
+\caption{Varying energy with fixed baseline $L=2 \cdot 10^3 \mathrm{km}$.} 
+\label{fig:matter} 
+\end{subfigure}
+\caption{Three-neutrino oscillation probabilities in matter with varying (a) baseline
+and (b) varying energy. The top panels show the actual probabilities while the bottom
+panels shown the sum of the probabilities which exactly sum to one.}
+\end{figure}
 In \Fig{fig:vacuum}, we plot the three-neutrino oscillation probabilities as a function of
 the baseline $L$ and energy $E$. In particular, we plot the probability that a neutrino
 with an initial flavor $\nu_e$ oscillates between flavors $\nu_\beta$ (with $\beta = e,
@@ -425,24 +528,46 @@ with an initial flavor $\nu_e$ oscillates between flavors $\nu_\beta$ (with $\be
 exactly gives one. For small values of $L$, we see that the probability that the 
 electron-neutrino does not oscillate is high. As the neutrino traverses more distances,
 this probability fluctuates, and in some regions smaller than the probability of the
-neutrino to have a flavor $\nu_\mu$ or $\nu_\tau$.
-
+neutrino to have a flavor $\nu_\mu$ or $\nu_\tau$. In the case of probabilities as a
+function of energy with fixed baseline, we see that instead as the energy increases, the
+probability that the neutrino keeps the same flavor is higher.
 \begin{figure}
 \captionsetup[subfigure]{aboveskip=-1.5pt,belowskip=-1.5pt} 
 \begin{subfigure}{1.05\linewidth}
-\includegraphics[width=\linewidth]{Osc3MatterBaseline.pdf}
-\caption{Varying distance (baseline).} 
+\includegraphics[width=\linewidth]{DistVacMatt.pdf}
+\caption{Varying baseline with fixed energy $E=10^{-2} \mathrm{GeV}$.} 
 \label{higgs:sspt} 
 \end{subfigure} 
 \\
 \begin{subfigure}{1.05\linewidth}
-\includegraphics[width=\linewidth]{Osc3MatterEnergy.pdf}
-\caption{Varying energy.} 
-\label{fig:matter} 
+\includegraphics[width=\linewidth]{EngVacMatt.pdf}
+\caption{Varying energy with fixed baseline $L=2 \cdot 10^3 \mathrm{km}$.} 
+\label{fig:comparison} 
 \end{subfigure}
 \caption{Three-neutrino oscillation probabilities in matter with varying (a) baseline
-and (b) varying energy.}
+and (b) varying energy. The top panels show the probability $\left( P_{vac} - P_{mat} 
+\right) / P_{mat}$ both in vacuum and in presence of matter. The bottom panels plot
+the relative differences.}
 \end{figure}
+In \Fig{fig:matter}, we show the three-neutrino oscillation probabilities for a neutrino
+that propagates in a matter with constant density $\rho = 3 g/cm$. As we can see, the 
+general behavior of the curves look similar to the propagation in vacuum. In order to
+see the differences, we show in \Fig{fig:comparison} comparisons between propagation in
+vacuum and in a matter for $P \left( \nu_\mu \longleftarrow \nu_e \right)$. The bottom
+panels show the relative difference $\left( P_{vac} - P_{mat} \right) / P_{mat}$. We can
+notice that for small distances (even at small energies), the matter has little effect
+on the oscillation probability. It is worth mentioning that the propagation in a matter
+with constant density is the simplest case and does not fully characterize realistic
+scenarios. A more realistic scenario, for instance, is the study of a neutrino traversing
+layers of matter, each with constant, but different density as in \myref{}. Another well
+studied phenomena is neutrino oscillation with non-standard interactions. This takes into
+account the fact that the medium in which the neutrino is propagating in can affect its
+dynamics \myref{}.
+
+
+
+\section{Conclusion \& open problems}
+\label{sec:conclusion}
 
 
 
