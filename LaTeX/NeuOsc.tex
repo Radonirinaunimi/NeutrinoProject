@@ -71,7 +71,7 @@ Via Celoria 16, Milano 20133, Italy}
 \section{Introduction}
 
 Since the idea of neutrino oscillations has been hypothesized by Potencorvo in 1957
-\cite{Potencorvo:1957cp, Pontecorvo:1957qd}, important experimental and theoretical
+\cite{Potencorvo:1957cp, Xontecorvo:1957qd}, important experimental and theoretical
 developments have emerged from the study of the properties of neutrino. Chief among
 these findings is the fact that there has to be physics beyond the Standard Model 
 (SM). The theoretical framework of neutrino mixing and masses for explaining neutrino
@@ -85,7 +85,7 @@ or Majorama.
 
 Various programs worldwide are currently being pursued in order to provide more
 experimental capabilities to tackle these issues \cite{Acciarri:2015uup, Antonello:2015lea, 
-An:2015jdp, Djurcic:2015vqa, Adamson:2016tbq, Kim:2014rfa,  Adamson:2016xxw, Abe:2015awa,
+An:2015jdp, Djurcic:2015vqa, Adamson:2016tbq, Kim:2014rfa, Adamson:2016xxw, Abe:2015awa,
 Adams:2013qkq}. For instance, in order to make a precise measurement of the Dirac phase, an 
 unprecedented amount of neutrino oscillation data will be needed in order to reduce the 
 statistical errors. This could only be achieved with new detectors with larger mass and 
@@ -161,7 +161,8 @@ dedicated to the investigation of the problem of neutrino masses and mixing.
 \label{sec:theory}
 
 Neutrinos interacts with other particles via weak interactions which are described
-by the charge current (CC) and neutral current (NC) interaction Lagrangians:
+by the charge current (CC) and neutral current (NC) interaction Lagrangians 
+\cite{Bilenky:1998dt}:
 \begin{align}
 \mathcal{L}_{CC} &= - \frac{g}{2 \sqrt{2}} \mathcal{J}^{CC}_\rho W^\rho + h.c, \\
 \mathcal{L}_{NC} &= - \frac{g}{2 \cos(\theta_W)} \mathcal{J}^{NC}_\rho Z^\rho,
@@ -170,12 +171,14 @@ where $g$ represents the $SU(2)_L$ gauge coupling constant and $\theta_W$ the we
 angle. Furthermore, the charged and neutral current that are respectively denoted
 by $\mathcal{J}^{CC}_\rho$ and $\mathcal{J}^{NC}_\rho$ are defined as:
 \begin{align}
-\mathcal{J}^{CC}_\rho &= 2 \sum_{l} \bar{\nu}_{lL} \gamma_\rho l_L, \\
-\mathcal{J}^{NC}_\rho &= \sum_{l} \bar{\nu}_{lL} \gamma_\rho \nu_{lL},
+\mathcal{J}^{CC}_\rho &= 2 \sum_{l} \bar{\nu}_{lL} \gamma_\rho l_L + \cdots, \\
+\mathcal{J}^{NC}_\rho &= \sum_{l} \bar{\nu}_{lL} \gamma_\rho \nu_{lL} + \cdots,
 \end{align}
-where the charged leptonic field $l$ can be one of the neutrino flavors $(e, \mu, \tau)$.
+where the charged leptonic field $l$ can be one of the neutrino flavors $(e, \mu, \tau)$
+with mass $m_l$. Notice that we have only written explicitly terms containing the neutrino
+fields.
 
-If the neutrinos have zero-masses, then the left-handed neutrino field $\nu_{\alpha L}$
+If neutrinos have zero-masses, the left-handed neutrino field $\nu_{\alpha L}$
 with flavor $\alpha$ can be written as a superposition of the left-handed components
 $\nu_{iL}$ of the neutrino field with mass $m_i$. In an ultra-relativistic scenario, we
 have:
@@ -188,23 +191,41 @@ the neutrino masses and Latin letters to refer to the flavours. The neutrino mas
 $i$ runs from $1$ to $N$ where $N$ denotes the number of massive neutrinos. In this
 project, we are only going to focus in the case $N=3$.
 
-In \Eq{eq:superposition}, $U$ is a unitary matrix. This implies that a flavor eigenstate
+In \Eq{eq:superposition}, $U$ is a unitary matrix. This implies that the flavor eigenstate
 $\kt{\nu_\alpha}$ can be written as a superposition of different mass eigenstates $\kt{\nu_i}$
 in the following way:
 \begin{align}
 \kt{\nu_{\alpha L}} &= U^\star_{\alpha i} \kt{\nu_i}, \\
 \kt{\bar{\nu}_{\alpha L}} &= U_{\alpha i} \kt{\bar{\nu}_i}.
 \end{align}
-Assuming that we have three $(03)$ massive neutrinos and that the neutrinos are Dirac
-particles, the mixing unitary matrix $U$ can be written as:
+Assuming that we have three $(03)$ massive neutrinos, the mixing unitary matrix $U$ can 
+be written as:
 \begin{align}
-U = \cdots ,
+U = & \left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & c_{23} & s_{23} \\
+0 & -s_{23} & c_{23}
+\end{array}\right)\left(\begin{array}{ccc}
+c_{13} & 0 & s_{13} e^{\mathrm{i} \delta_{13}} \\
+0 & 1 & 0 \\
+-s_{13} e^{\mathrm{i} \delta_{13}} & 0 & c_{13}
+\end{array}\right) , \nonumber \\
+& \left(\begin{array}{ccc}
+c_{12} & s_{12} & 0 \\
+-s_{12} & c_{12} & 0 \\
+0 & 0 & 1
+\end{array}\right)\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & e^{ \mathrm{i} \delta_{13} } & 0 \\
+0 & 0 & 1
+\end{array}\right)
 \label{eq:evolution_matrix}
 \end{align}
 where $c_{ij} = \cos(\theta_{ij})$ and $s_{ij} = \sin(\theta_{ij})$. Here, $\theta_{ij}$
-denote the mixing angles while $\delta$ denotes the Dirac-type CP-phase. Defining 
-$\Delta_{ij} = m_i^2 - m_j^2$ and ordering the masses such that $\Delta_{21}^2 > 0$
-and $\Delta_{21}^2 < \Delta_{31}^2$, we have the following constraints:
+denote the mixing angles while $\delta$ denotes the Dirac-type CP-phase (often denoted 
+here as $\delta_{CP}$. Defining $\Delta_{ij} = m_i^2 - m_j^2$ and ordering the masses 
+such that $\Delta_{21}^2 > 0$ and $\Delta_{21}^2 < \Delta_{31}^2$, we have the following 
+constraints:
 \begin{align}
 0 \leq \theta_{ij} \leq \frac{\pi}{2} \quad (i \neq j), \quad 0 \leq \delta \leq 2 \pi .
 \end{align}
@@ -216,12 +237,12 @@ and $\Delta_{21}^2 < \Delta_{31}^2$, we have the following constraints:
 The evolution equation of a generic neutrino state $\kt{\nu(t)}$ is described by a
 Shrödinger-like equation:
 \begin{align}
-\mathrm{i} \partial_t \kt{\nu(t)} = H \kt{\nu(t)},
+\mathrm{i} \partial_t \kt{\nu_\alpha(t)} = H \kt{\nu_\alpha(t)},
 \end{align}
 where $H$ represents the Hamiltonian operator. Expressed in the flavor eigenstate
 basis $\kt{\nu_\alpha}$, the above equation translates into
 \begin{align}
-\mathrm{i} \partial_t v^{(f)}(t) = H^{(f)} \nu^{(f)}(t),
+\mathrm{i} \partial_t \nu^{(f)}(t) = H^{(f)} \nu^{(f)}(t),
 \end{align}
 where $v^{(f)}(t)$ denotes the vector describing the flavor content of the neutrino state
 $\kt{\nu(t)}$. Elements of the Hamiltonian matrix $H^{(f)}$ are given by
@@ -271,11 +292,12 @@ where the evolution operator $S$ is expressed as
 S^{(f)} = T \left[ \mathrm{exp} \left( - \mathrm{i} \int_{0}^{x} \mathrm{d}\tilde{x} \:
 H^{(f)} (\tilde{x}) \right) \right].
 \end{align}
-In the above equation, $\mathrm{T}$ represents the time ordering operator. Therefore, 
-the probability to detect a neutrino of flavor $\nu_\beta$ at a distance $L$
-from its initial position (where its initial flavor is known) is given by
+Recall that in the ultra-relativistic limit $x \approx t$. In the above equation, 
+$\mathrm{T}$ represents the time ordering operator. Therefore, the probability to detect 
+a neutrino of flavor $\nu_\beta$ at a distance $L$ from its initial position (where its 
+initial flavor is known) is given by
 \begin{align}
-P (\nu_\beta \longleftarrow \nu_\alpha) = \vert S^{(f)}_{\beta \alpha (L)} \vert^2.
+P (\nu_\beta \longleftarrow \nu_\alpha) = \vert S^{(f)}_{\beta \alpha} \vert^2.
 \label{eq:prob_s}
 \end{align}
 This implies that the survival probability $P (\nu_\alpha \longleftarrow \nu_\alpha)$
@@ -295,14 +317,14 @@ constant. Hence, the evolution operator can be written as
 \begin{align}
 S^{(f)} = U S^{(m)} U^\dagger .
 \end{align}
-The evolution operator in the mass eigenstate (denoted by the $(m)$) is a diagonal matrix
-that is function of $\phi_i = -m_i^2 x / 2 \vert \vec{p} \vert$
+The evolution operator in the mass eigenstate (denoted by the upper-script $m$) is a 
+diagonal matrix that is function of $\phi_i = -m_i^2 x / 2 \vert \vec{p} \vert$,
 \begin{align}
 S^{(m)} = \mathrm{diag} \left( \mathrm{exp}(i \phi_1), \mathrm{exp}(i \phi_2), 
 \mathrm{exp}(i \phi_3) \right) .
 \end{align}
-The probability of observing a neutrino of flavor $\nu_\alpha$ to change into a neutrino
-of flavor $\nu_\beta$ is given by
+Using \Eq{eq:prob_s}, the probability of observing a neutrino of flavor 
+$\nu_\alpha$ to change into a neutrino of flavor $\nu_\beta$ is given by the following:
 \begin{align}
 P (\nu_\beta \longleftarrow \nu_\alpha) = \left( U_{\beta i} U^\star_{\alpha i} 
 U^\star_{\beta j} U_{\alpha j} \right) \mathrm{exp}(i \phi_{ij}),
@@ -321,8 +343,8 @@ P (\nu_\beta \longleftarrow \nu_\alpha) = \sin^2 (2 \theta_{ij}) \sin^2 \left(
 \label{eq:2OscProb}
 \end{align}
 Notice that in the above expression, $\alpha$ has to be different from $\beta$ 
-$(\alpha \neq \beta)$ and depending on the non-vanishing mixing angle, we end up with
-different flavor changes, i.e.:
+$(\alpha \neq \beta)$, and depending on the non-vanishing mixing angle (taking into
+account that $i \neq j$), we end up with different flavor changes, i.e.:
 \begin{align}
 \theta_{12} & \neq 0 \Longleftrightarrow P (\nu_\mu \longleftarrow \nu_e), \\
 \theta_{23} & \neq 0 \Longleftrightarrow P (\nu_\tau \longleftarrow \nu_\mu), \\
@@ -337,14 +359,16 @@ P (\nu_\mu \longleftarrow \nu_e) =& s_{23}^{2} S_{23} \sin^2 (2 \theta_{13})  \n
 \end{align} 
 where $S_{ij} = \sin^2 \left( \Delta_{ij}^2 L / (4E) \right)$ and 
 \begin{align}
-J = \cdots .
+J = \frac{1}{8} \sin \left(2 \theta_{12}\right) \sin \left(2 \theta_{23}\right) \sin \left(2 \theta_{13}\right) \cos \left(\theta_{13}\right) \sin (\delta) . \nonumber
 \end{align}
 
 
 \section{Phenomenology of neutrino oscillation probabilities}
 \label{sec:pheno}
 
-In this section, 
+In this section, we show some phenomenological results for the case of three-neutrino
+probability oscillations. In lieu of doing so, we first give a very brief overview of
+a numerical method that allows for an exact computation of those probabilities.
 
 
 \subsection{Numerical insights}
@@ -353,16 +377,34 @@ In this section,
 From the analytical point of view, computing probabilities of flavor transition involve
 diagonalizing the Hamiltonian operator. This procedure, however, can be complicated especially
 when one studies neutrino oscillations in matter. As is often done, careful studies of
-perturbative methods that lead to some approximations are used in order to computed these
-probabilities. As described in \cite{}, numerical methods can bring new insights into 
-understanding how these probabilities are computed. The resulting methods provide strategies
+perturbative methods that lead to some approximations are used in order to compute these
+probabilities. As described in \cite{Bustamante:2019ggq}, numerical methods can bring new insights 
+into understanding how these probabilities are computed. The resulting methods provide strategies
 to explore non-standard oscillations where the Hamiltonians do not have generic analytical
 solutions. 
+\begin{figure}
+\captionsetup[subfigure]{aboveskip=-1.5pt,belowskip=-1.5pt} 
+\begin{subfigure}{1.05\linewidth}
+\includegraphics[width=\linewidth]{Osc3VacuumBaseline.pdf}
+\caption{Varying baseline with fixed energy $E=10^{-2} \mathrm{GeV}$.} 
+\label{higgs:sspt} 
+\end{subfigure} 
+\\
+\begin{subfigure}{1.05\linewidth}
+\includegraphics[width=\linewidth]{Osc3VacuumEnergy.pdf}
+\caption{Varying energy with fixed baseline $L=2 \cdot 10^3 \mathrm{km}$.} 
+\label{fig:vacuum} 
+\end{subfigure}
+\caption{Three-neutrino oscillation probabilities in vacuum with varying (a) baseline
+and (b) varying energy. The top panels show the actual probabilities while the bottom
+panels shown the sum of the probabilities which exactly sum to one.}
+\end{figure}
 
-In this project, we follow closely the method described in \myref{} first introduced
-by Ohlsson and Snellman in \myref{}. It consists on expanding the Hamiltonian operator 
-that enters in the expression of the evolution operator in terms of $SU(2)$ and $SU(3)$ 
-matrices. The steps for such a calculation can be broken down into the following steps:
+In this project, we follow closely the method described in \myref{Bustamante:2019ggq} first 
+introduced by Ohlsson and Snellman in Ref.~\cite{Ohlsson:1999xb, Ohlsson:1999um, Ohlsson:2001et}. 
+It consists on expanding the Hamiltonian operator that enters in the expression of the evolution 
+operator in terms of $SU(2)$ and $SU(3)$ matrices. The steps for such a calculation can be 
+broken down into the following steps:
 \begin{itemize}
 \item[-] First, the Hamiltonian is expanded in terms of the Pauli matrices in the case of
 two-neutrino oscillation, and in terms of the Gell-Mann matrices in the case of 
@@ -376,7 +418,7 @@ polynomial of degree $(n-1)$ in that matrix.
 series and derive the corresponding probability.
 \end{itemize}
 In this report, we only illustrate the case for two-neutrino oscillations. For the 
-three-neutrino case, refer to \myref{}. Let us denote the two-neutrino Hamiltonian
+three-neutrino case, refer to \myref{Bustamante:2019ggq}. Let us denote the two-neutrino Hamiltonian
 by $\mathrm{H}_2$. Its expansion in terms of the Pauli matrices $\sigma^i$ is given by
 \begin{align}
 \mathrm{H}_2 = h_0 + h_i \sigma^i \quad \quad (i=1,2,3).
@@ -384,31 +426,36 @@ by $\mathrm{H}_2$. Its expansion in terms of the Pauli matrices $\sigma^i$ is gi
 The coefficients $h_k$ are fully determined by the components of the Hamiltonian matrix
 and can be easily computed using the explicit expression of the Pauli matrices.
 \begin{align}
-h_0 = 
+\begin{array}{ll}
+h_{0} =& \frac{1}{2}\left(\left(\mathrm{H}_{2}\right)_{11}+\left(\mathrm{H}_{2}\right)_{22}\right) \\
+h_{1} =& \operatorname{Re}\left(\left(\mathrm{H}_{2}\right)_{12}\right) \\
+h_{2} =& -\operatorname{Im}\left(\left(\mathrm{H}_{2}\right)_{12}\right) \\
+h_{3} =& \frac{1}{2}\left(\left(\mathrm{H}_{2}\right)_{11}-\left(\mathrm{H}_{2}\right)_{22}\right)
+\end{array}
 \end{align}
-The evolution operator $\mathrm{U}_2$ for the twp-neutrino oscillations case can
+The evolution operator $\mathrm{U}_2$ for the two-neutrino oscillations case can
 therefore be written as
 \begin{align}
 \mathrm{U}_2 = \exp \left( - \mathrm{i} (h_0 + h_i \sigma^i) L \right).
 \end{align}
 The first term in the exponent does not affect the probability and therefore can be 
-ignored. Hence, the evolution operator just becomes $\mathrm{U}_2 = \exp (- \mathrm{i}
+ignored. Hence, the evolution operator just becomes $\mathrm{S}_2 = \exp (- \mathrm{i}
 h_i \sigma^i L)$. Using Euler's formula, the above expression yields
 \begin{align}
-\mathrm{U}_2 = \cos (\vert h \vert L) -  \frac{\mathrm{i}}
+\mathrm{S}_2 = \cos (\vert h \vert L) -  \frac{\mathrm{i}}
 {\vert h \vert} \sin (\vert h \vert L) h_i \sigma^i ,
 \end{align}
 where $\vert h \vert = \sqrt{ \vert h_1 \vert^2 + \vert h_2 \vert^2 +
 \vert h_3 \vert^2}$. We can now compute the survival probability 
 \begin{align}
-P (\nu_\alpha \longleftarrow \nu_\alpha) = \vert \nu_\alpha^\dagger \mathrm{U}_\alpha
+P (\nu_\alpha \longleftarrow \nu_\alpha) = \vert \nu_\alpha^\dagger \mathrm{S}_\alpha
 \nu_\alpha \vert^2 .
 \label{eq:prob_norm}
 \end{align} 
 Considering $\nu_\alpha = (1,0)^\mathrm{T}$, we can compute the terms that enter in the
 expression of the probability in \Eq{eq:prob_norm}
 \begin{align}
-\nu_\alpha^\dagger \mathrm{U}_\alpha \nu_\alpha = \cos (\vert h \vert L) - \mathrm{i}
+\nu_\alpha^\dagger \mathrm{S}_\alpha \nu_\alpha = \cos (\vert h \vert L) - \mathrm{i}
 \frac{h_3}{\vert h \vert} \sin (\vert h \vert L).
 \end{align}
 Putting this expression back into \Eq{eq:prob_norm}, and with some algebras we can
@@ -423,6 +470,24 @@ relation:
 \begin{align}
 P (\nu_\beta \longleftarrow \nu_\alpha) = 1 - P (\nu_\alpha \longleftarrow \nu_\alpha).
 \end{align}
+
+\begin{figure}
+\captionsetup[subfigure]{aboveskip=-1.5pt,belowskip=-1.5pt} 
+\begin{subfigure}{1.05\linewidth}
+\includegraphics[width=\linewidth]{Osc3MatterBaseline.pdf}
+\caption{Varying baseline with fixed energy $E=10^{-2} \mathrm{GeV}$.} 
+\label{higgs:sspt} 
+\end{subfigure} 
+\\
+\begin{subfigure}{1.05\linewidth}
+\includegraphics[width=\linewidth]{Osc3MatterEnergy.pdf}
+\caption{Varying energy with fixed baseline $L=2 \cdot 10^3 \mathrm{km}$.} 
+\label{fig:matter} 
+\end{subfigure}
+\caption{Three-neutrino oscillation probabilities in matter with varying (a) baseline
+and (b) varying energy. The top panels show the actual probabilities while the bottom
+panels shown the sum of the probabilities which exactly sum to one.}
+\end{figure}
 
 Let us now show that using this approach, we re-derive the two-neutrino oscillation
 probability given by \Eq{eq:2OscProb}. For two-neutrino flavor oscillation, the vacuum
@@ -445,27 +510,11 @@ P (\nu_\beta \longleftarrow \nu_\alpha) = \sin^2 (2 \theta_{ij}) \sin^2 \left(
 \end{align} 
 which is exactly the same as in \Eq{eq:prob_norm}. The difference being that this approach
 can be easily implemented numerically to compute oscillations in matter. Going into full
-details of using this method to compute the three-oscillation probabilities or to study
-neutrino oscillations in matter is beyond the scope of this project and will be left
-aside. For complete details and computations, refer to \myref{}. The next section, however,
-will present results beyond the two-neutrino oscillations both in vacuum and in matter.
-\begin{figure}
-\captionsetup[subfigure]{aboveskip=-1.5pt,belowskip=-1.5pt} 
-\begin{subfigure}{1.05\linewidth}
-\includegraphics[width=\linewidth]{Osc3VacuumBaseline.pdf}
-\caption{Varying baseline with fixed energy $E=10^{-2} \mathrm{GeV}$.} 
-\label{higgs:sspt} 
-\end{subfigure} 
-\\
-\begin{subfigure}{1.05\linewidth}
-\includegraphics[width=\linewidth]{Osc3VacuumEnergy.pdf}
-\caption{Varying energy with fixed baseline $L=2 \cdot 10^3 \mathrm{km}$.} 
-\label{fig:vacuum} 
-\end{subfigure}
-\caption{Three-neutrino oscillation probabilities in vacuum with varying (a) baseline
-and (b) varying energy. The top panels show the actual probabilities while the bottom
-panels shown the sum of the probabilities which exactly sum to one.}
-\end{figure}
+details of using this method to compute the three-oscillation probabilities and to study
+neutrino oscillations in matter (including non standard oscillations) is beyond the scope of 
+this project and will be left aside. For complete details and computations, refer to 
+\myref{Bustamante:2019ggq}. The next section, however, will present results beyond the 
+two-neutrino oscillations both in vacuum and in matter.
 
 
 \subsection{Phenomenological results}
@@ -498,29 +547,14 @@ $\Delta_{31}$			& $2.525 \cdot 10^{-3}$ \\
 \hline
 \end{tabular}
 \caption{Numerical values of the mass differences $\Delta_{ij}$ and mixing angles
-$\theta_{ij}$ extracted from a global fit to oscillation data \cite{Esteban:2018azc, }.}
+$\theta_{ij}$ extracted from a global fit to oscillation data \cite{Esteban:2018azc}.}
 \label{tab:params}
 \end{table}
 
 The plots shown in this project were produced using python codes \cite{} which in turn rely
-on an external python library called \texttt{NuOsc} \cite{}.
-\begin{figure}
-\captionsetup[subfigure]{aboveskip=-1.5pt,belowskip=-1.5pt} 
-\begin{subfigure}{1.05\linewidth}
-\includegraphics[width=\linewidth]{Osc3MatterBaseline.pdf}
-\caption{Varying baseline with fixed energy $E=10^{-2} \mathrm{GeV}$.} 
-\label{higgs:sspt} 
-\end{subfigure} 
-\\
-\begin{subfigure}{1.05\linewidth}
-\includegraphics[width=\linewidth]{Osc3MatterEnergy.pdf}
-\caption{Varying energy with fixed baseline $L=2 \cdot 10^3 \mathrm{km}$.} 
-\label{fig:matter} 
-\end{subfigure}
-\caption{Three-neutrino oscillation probabilities in matter with varying (a) baseline
-and (b) varying energy. The top panels show the actual probabilities while the bottom
-panels shown the sum of the probabilities which exactly sum to one.}
-\end{figure}
+on an external python library called \texttt{NuOscProbExact} the numerical method 
+presented in \myref{Bustamante:2019ggq}.
+
 In \Fig{fig:vacuum}, we plot the three-neutrino oscillation probabilities as a function of
 the baseline $L$ and energy $E$. In particular, we plot the probability that a neutrino
 with an initial flavor $\nu_e$ oscillates between flavors $\nu_\beta$ (with $\beta = e,
@@ -559,17 +593,38 @@ notice that for small distances (even at small energies), the matter has little 
 on the oscillation probability. It is worth mentioning that the propagation in a matter
 with constant density is the simplest case and does not fully characterize realistic
 scenarios. A more realistic scenario, for instance, is the study of a neutrino traversing
-layers of matter, each with constant, but different density as in \myref{}. Another well
-studied phenomena is neutrino oscillation with non-standard interactions. This takes into
-account the fact that the medium in which the neutrino is propagating in can affect its
-dynamics \myref{}.
+layers of matter, each with constant, but different density as in Ref.~\cite{Chizhov:1999az, 
+Chizhov:1999he, Merfeld:2014cha}. Another well studied phenomena is neutrino oscillation 
+with non-standard interactions. This takes into account the fact that the medium in which 
+the neutrino is propagating in can affect its dynamics Ref.~\cite{Jacobsson:2001zk, Ohlsson:2003ip,
+Arguelles:2012nw, Roe:2017zdw, Kelly:2018kmb}.
 
 
-
-\section{Conclusion \& open problems}
+\section{Conclusion \& perspectives}
 \label{sec:conclusion}
 
+The fact that neutrinos have masses, which is a direct consequence of the neutrino oscillation,
+is a concrete evidence of a physics beyond the current standard model (SM). This project attempted
+to give a brief overview and introduction into the field of neutrino oscillation by focusing
+mainly on the computation of the oscillation probabilities.
 
+\Sec{sec:experiment} described the experimental probes of the neutrino oscillation phenomena that
+led to its discovery. In \Sec{sec:theory}, we presented a condensed review of the theoretical 
+framework behind the physics of neutrino oscillations. In particular, we focused on the analytical
+computation of the oscillation probability (and survival probability). Then, in \Sec{sec:pheno} we 
+presented some phenomenological results concerning the neutrino oscillation probabilities both as
+a function of the energy and the baseline. We specifically studied the case for the three-flavor
+oscillation. This has been achieved with the means of a numerical approach that overcome the problems
+of diagonalizing the Hamiltonian in the analytical approach.
+
+Albeit the field of neutrino oscillation physics has achieved quite some progresses in the last couple of 
+decades, there are still many open problems that await to be unveiled. As briefly alluded in the
+previous sections, some of the relevant issues concern the determination of neutrino mass 
+hierarchy and the precise determination of the mixing angle $\theta_{23}$. The issue of mass
+hierarchy might be resolved by the study of atmospheric neutrino oscillations as they are sensitive
+to the mass ordering through matter effects for neutrino traversing the earth's atmosphere.
+There are, on the other hand, issues that require high-precision experiments of not so immediate in future, such as the precise measurement of the Dirac-phase $\delta_{CP}$ and the probes of the CP violation in the leptonic sector. One of the prominent future experiments is the T2HK (Hyper-Kamiokande) that will be the successor of T2K \cite{Bellini:2013wra}. It is thus clear that high precision detectors
+and reactors will play a crucial role in addressing these issues.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\nocite{*}
