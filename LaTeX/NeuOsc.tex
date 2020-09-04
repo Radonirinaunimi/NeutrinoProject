@@ -31,9 +31,11 @@
 \usepackage{mhchem}
 \usepackage{graphicx}
 \usepackage{wrapfig}
-\usepackage{sidecap}
-\usepackage{subcaption}	 
+\usepackage{sidecap} 
 \usepackage{lipsum}  
+
+\usepackage[justification=justified,singlelinecheck=false]{caption}
+\usepackage[justification=justified,singlelinecheck=false]{subcaption}	
 
 % Define path to plots
 \graphicspath{{../pythonCode/analysis/plots/Osc3Neutrinos/}}
@@ -388,7 +390,6 @@ solutions.
 \begin{subfigure}{1.05\linewidth}
 \includegraphics[width=\linewidth]{Osc3VacuumBaseline.pdf}
 \caption{Varying baseline with fixed energy $E=10^{-2} \mathrm{GeV}$.} 
-\label{higgs:sspt} 
 \end{subfigure} 
 \\
 \begin{subfigure}{1.05\linewidth}
@@ -477,7 +478,6 @@ P (\nu_\beta \longleftarrow \nu_\alpha) = 1 - P (\nu_\alpha \longleftarrow \nu_\
 \begin{subfigure}{1.05\linewidth}
 \includegraphics[width=\linewidth]{Osc3MatterBaseline.pdf}
 \caption{Varying baseline with fixed energy $E=10^{-2} \mathrm{GeV}$.} 
-\label{higgs:sspt} 
 \end{subfigure} 
 \\
 \begin{subfigure}{1.05\linewidth}
@@ -571,7 +571,6 @@ probability that the neutrino keeps the same flavor is higher.
 \begin{subfigure}{1.05\linewidth}
 \includegraphics[width=\linewidth]{DistVacMatt.pdf}
 \caption{Varying baseline with fixed energy $E=10^{-2} \mathrm{GeV}$.} 
-\label{higgs:sspt} 
 \end{subfigure} 
 \\
 \begin{subfigure}{1.05\linewidth}
